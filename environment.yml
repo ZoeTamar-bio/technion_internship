@@ -1,0 +1,37 @@
+# Conda environment for Zoe's melanoma single-cell project.
+#
+# Create it once on your laptop, then activate it every time you work:
+#
+#     conda env create -f environment.yml
+#     conda activate zoe-sc
+#
+# To launch the notebooks:
+#
+#     jupyter lab
+#
+name: zoe-sc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      # core single-cell stack
+      - scanpy==1.11.5
+      - anndata==0.12.18
+      - leidenalg==0.12.0        # Leiden clustering
+      - igraph==1.0.0
+      - scikit-misc==0.5.2       # needed by some highly_variable_genes flavors
+      # batch correction (Part 2, optional)
+      - harmonypy==0.0.10        # pinned: 2.x is incompatible with scanpy's harmony_integrate
+      # automated cell-type annotation (Part 2)
+      - celltypist==1.7.1
+      # scientific python + notebooks + I/O
+      - jupyterlab==4.6.1
+      - matplotlib==3.11.0
+      - numpy==2.4.6
+      - pandas==2.3.3
+      - scipy==1.17.1
+      - scikit-learn==1.9.0
+      - umap-learn==0.5.12
+      - openpyxl==3.1.5          # reads the supplementary .xlsx

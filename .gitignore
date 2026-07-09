@@ -1,0 +1,14 @@
+# Data — large / possibly sensitive
+*.h5ad
+data/
+
+# Secrets — never commit
+*.key
+.env
+
+# Junk
+.ipynb_checkpoints/
+__pycache__/
+
+# Installers / executables
+*.exe
